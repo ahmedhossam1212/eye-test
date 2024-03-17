@@ -5,7 +5,6 @@ import 'package:eye_test/core/utils/style_manager.dart';
 import 'package:eye_test/presentation/view/widgets/main_button.dart';
 import 'package:eye_test/presentation/view/widgets/otp_form.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 class OTPScreen extends StatefulWidget {
   const OTPScreen({super.key});

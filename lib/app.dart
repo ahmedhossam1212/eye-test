@@ -1,8 +1,4 @@
-import 'package:eye_test/presentation/view/screens/forget_password_screen.dart';
-import 'package:eye_test/presentation/view/screens/new_password_screen.dart';
-import 'package:eye_test/presentation/view/screens/otp_screen.dart';
-import 'package:eye_test/presentation/view/screens/password_changed_screen.dart';
-import 'package:eye_test/presentation/view/screens/splash_screen.dart';
+import 'package:eye_test/presentation/view/screens/main_screen.dart';
 import 'package:flutter/material.dart';
 
 class MyApp extends StatelessWidget {
@@ -16,7 +12,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         useMaterial3: true,
       ),
-      home: const PasswordChangedScreen(),
+      home: const MainScreen(),
     );
   }
 }

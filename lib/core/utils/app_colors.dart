@@ -7,5 +7,5 @@ class AppColors {
   static Color primary = HexColor("#C2E6FF");
   static Color babyBlue = HexColor("E7EEFF");
   static Color grey = HexColor("#6A707C");
-  static Color lightGrey = HexColor("#E8ECF4");
+  static Color lightGrey = HexColor("#E8ECF4"); //#F0F0F3
 }
