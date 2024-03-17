@@ -1,6 +1,5 @@
 import 'package:enefty_icons/enefty_icons.dart';
 import 'package:eye_test/core/utils/app_colors.dart';
-import 'package:eye_test/core/utils/media_query_values.dart';
 import 'package:eye_test/presentation/view/screens/home_screen.dart';
 import 'package:eye_test/presentation/view/screens/profile_screen.dart';
 import 'package:flutter/material.dart';
@@ -65,7 +64,10 @@ class _MainScreenState extends State<MainScreen> {
               elevation: 10,
               onPressed: () {},
               backgroundColor: AppColors.primary,
-              child: const Icon(Icons.search),
+              child: Icon(
+                EneftyIcons.search_normal_2_outline,
+                color: AppColors.white,
+              ),
             ),
           ),
         ),
