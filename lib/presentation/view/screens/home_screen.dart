@@ -1,8 +1,8 @@
 import 'package:eye_test/core/utils/app_colors.dart';
 import 'package:eye_test/core/utils/media_query_values.dart';
 import 'package:eye_test/core/utils/style_manager.dart';
+import 'package:eye_test/presentation/view/screens/test_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -74,19 +74,28 @@ class HomeScreen extends StatelessWidget {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Container(
-                              width: context.width * 0.12,
-                              height: context.height * 0.06,
-                              decoration: BoxDecoration(
-                                  color: AppColors.white,
-                                  border: Border.all(
-                                    color: AppColors.primary,
-                                    width: 2,
-                                  ),
-                                  borderRadius: BorderRadius.circular(30)),
-                              child: Icon(
-                                Icons.visibility,
-                                color: AppColors.black,
+                            InkWell(
+                              onTap: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => TestScreen(),
+                                    ));
+                              },
+                              child: Container(
+                                width: context.width * 0.12,
+                                height: context.height * 0.06,
+                                decoration: BoxDecoration(
+                                    color: AppColors.white,
+                                    border: Border.all(
+                                      color: AppColors.primary,
+                                      width: 2,
+                                    ),
+                                    borderRadius: BorderRadius.circular(30)),
+                                child: Icon(
+                                  Icons.visibility,
+                                  color: AppColors.black,
+                                ),
                               ),
                             ),
                             const SizedBox(

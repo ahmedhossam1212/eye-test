@@ -1,5 +1,3 @@
-import 'package:eye_test/core/utils/app_colors.dart';
-import 'package:eye_test/core/utils/media_query_values.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
@@ -8,6 +6,6 @@ class ProfileScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(child: Text("profile"));
+    return const Center(child: Text("profile"));
   }
 }
