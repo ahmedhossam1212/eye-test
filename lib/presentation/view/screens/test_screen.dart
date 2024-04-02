@@ -1,6 +1,7 @@
 import 'package:eye_test/core/utils/app_colors.dart';
 import 'package:eye_test/core/utils/media_query_values.dart';
 import 'package:eye_test/core/utils/style_manager.dart';
+import 'package:eye_test/presentation/view/screens/ishara_test.dart';
 import 'package:eye_test/presentation/view/widgets/test_items.dart';
 import 'package:flutter/material.dart';
 
@@ -19,7 +20,7 @@ class TestScreen extends StatelessWidget {
     "Cambridge Color Test",
     "Kids Color Blind Test"
   ];
-  final List<Widget> screens = [];
+  final List<Widget> screens = [const IsharaaTestScreen()];
 
   @override
   Widget build(BuildContext context) {
@@ -43,11 +44,17 @@ class TestScreen extends StatelessWidget {
         padding: const EdgeInsets.all(20.0),
         child: ListView.separated(
             itemBuilder: (context, index) => buildTestItem(context,
-                image: images[index], title: title[index], fun: () {}),
+                    image: images[index], title: title[index], fun: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => screens[index],
+                      ));
+                }),
             separatorBuilder: (context, index) => SizedBox(
                   height: context.height * 0.04,
                 ),
-            itemCount: 4),
+            itemCount: images.length),
       ),
     );
   }
