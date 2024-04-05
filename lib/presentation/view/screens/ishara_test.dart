@@ -14,6 +14,14 @@ class IsharaaTestScreen extends StatefulWidget {
 class _IsharaaTestScreenState extends State<IsharaaTestScreen> {
   PageController pageController = PageController();
   bool lastpage = false;
+  String? selectedRadioTile;
+
+  setSelectedRadioTile(String? tile) {
+    setState(() {
+      selectedRadioTile = tile;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -48,55 +56,34 @@ class _IsharaaTestScreenState extends State<IsharaaTestScreen> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Container(
-                            decoration: BoxDecoration(
-                                color: AppColors.white,
-                                border: Border.all(
-                                    color: AppColors.lightGrey, width: 2),
-                                borderRadius: BorderRadius.circular(30)),
-                            child: Center(
-                              child: TextButton(
-                                child: Text(
-                                  "R",
-                                  style: getSemiBoldStyle(
-                                      color: AppColors.black, fontSize: 20),
-                                ),
-                                onPressed: () {},
-                              ),
+                          Expanded(
+                            child: RadioListTile(
+                              value: 'A',
+                              groupValue: selectedRadioTile,
+                              title: const Text('A'),
+                              onChanged: (value) {
+                                setSelectedRadioTile(value!);
+                              },
                             ),
                           ),
-                          Container(
-                            decoration: BoxDecoration(
-                                color: AppColors.white,
-                                border: Border.all(
-                                    color: AppColors.lightGrey, width: 2),
-                                borderRadius: BorderRadius.circular(30)),
-                            child: Center(
-                              child: TextButton(
-                                child: Text(
-                                  "B",
-                                  style: getSemiBoldStyle(
-                                      color: AppColors.black, fontSize: 20),
-                                ),
-                                onPressed: () {},
-                              ),
+                          Expanded(
+                            child: RadioListTile(
+                              value: 'B',
+                              groupValue: selectedRadioTile,
+                              title: const Text('B'),
+                              onChanged: (value) {
+                                setSelectedRadioTile(value!);
+                              },
                             ),
                           ),
-                          Container(
-                            decoration: BoxDecoration(
-                                color: AppColors.white,
-                                border: Border.all(
-                                    color: AppColors.lightGrey, width: 2),
-                                borderRadius: BorderRadius.circular(30)),
-                            child: Center(
-                              child: TextButton(
-                                child: Text(
-                                  "F",
-                                  style: getSemiBoldStyle(
-                                      color: AppColors.black, fontSize: 20),
-                                ),
-                                onPressed: () {},
-                              ),
+                          Expanded(
+                            child: RadioListTile(
+                              value: 'C',
+                              groupValue: selectedRadioTile,
+                              title: const Text('C'),
+                              onChanged: (value) {
+                                setSelectedRadioTile(value!);
+                              },
                             ),
                           ),
                         ],
@@ -111,7 +98,7 @@ class _IsharaaTestScreenState extends State<IsharaaTestScreen> {
                             "Note: Please Selest the correct Option you see in the image . please try to choose within 3 sec",
                             style: getMediumStyle(
                                 color: AppColors.grey, fontSize: 15),
-                          ))
+                          )),
                     ],
                   ),
                   Column(
@@ -201,53 +188,63 @@ class _IsharaaTestScreenState extends State<IsharaaTestScreen> {
                       alignment: Alignment(0, context.height * 0.001),
                       child: Row(
                         children: [
-                          Container(
-                            width: context.width * 0.3,
-                            decoration: BoxDecoration(
-                                color: AppColors.primary,
-                                borderRadius: BorderRadius.circular(30)),
-                            child: Padding(
-                              padding: const EdgeInsets.all(3.0),
-                              child: TextButton(
-                                  onPressed: () {
-                                    pageController.previousPage(
-                                        duration:
-                                            const Duration(milliseconds: 500),
-                                        curve: Curves.easeInOutCirc);
-                                  },
-                                  child: Text(
-                                    "Back",
-                                    style: getBoldStyle(
-                                        color: AppColors.black, fontSize: 15),
-                                  )),
+                          Material(
+                            elevation: 10,
+                            clipBehavior: Clip.hardEdge,
+                            borderRadius: BorderRadius.circular(30),
+                            child: Container(
+                              width: context.width * 0.3,
+                              decoration: BoxDecoration(
+                                  color: AppColors.primary,
+                                  borderRadius: BorderRadius.circular(30)),
+                              child: Padding(
+                                padding: const EdgeInsets.all(3.0),
+                                child: TextButton(
+                                    onPressed: () {
+                                      pageController.previousPage(
+                                          duration:
+                                              const Duration(milliseconds: 500),
+                                          curve: Curves.easeInOutCirc);
+                                    },
+                                    child: Text(
+                                      "Back",
+                                      style: getBoldStyle(
+                                          color: AppColors.black, fontSize: 15),
+                                    )),
+                              ),
                             ),
                           ),
                           const Spacer(),
-                          Container(
-                            width: context.width * 0.3,
-                            decoration: BoxDecoration(
-                                color: AppColors.primary,
-                                borderRadius: BorderRadius.circular(30)),
-                            child: Padding(
-                              padding: const EdgeInsets.all(3.0),
-                              child: TextButton(
-                                  onPressed: () {
-                                    lastpage
-                                        ? Navigator.push(
-                                            context,
-                                            MaterialPageRoute(
-                                                builder: (context) =>
-                                                    const ResultIsharaaScreen()))
-                                        : pageController.nextPage(
-                                            duration: const Duration(
-                                                milliseconds: 500),
-                                            curve: Curves.easeInOutCirc);
-                                  },
-                                  child: Text(
-                                    "Next",
-                                    style: getBoldStyle(
-                                        color: AppColors.black, fontSize: 15),
-                                  )),
+                          Material(
+                            elevation: 10,
+                            clipBehavior: Clip.hardEdge,
+                            borderRadius: BorderRadius.circular(30),
+                            child: Container(
+                              width: context.width * 0.3,
+                              decoration: BoxDecoration(
+                                  color: AppColors.primary,
+                                  borderRadius: BorderRadius.circular(30)),
+                              child: Padding(
+                                padding: const EdgeInsets.all(3.0),
+                                child: TextButton(
+                                    onPressed: () {
+                                      lastpage
+                                          ? Navigator.push(
+                                              context,
+                                              MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      const ResultIsharaaScreen()))
+                                          : pageController.nextPage(
+                                              duration: const Duration(
+                                                  milliseconds: 500),
+                                              curve: Curves.easeInOutCirc);
+                                    },
+                                    child: Text(
+                                      "Next",
+                                      style: getBoldStyle(
+                                          color: AppColors.black, fontSize: 15),
+                                    )),
+                              ),
                             ),
                           ),
                         ],
