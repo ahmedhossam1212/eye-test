@@ -63,26 +63,26 @@ class HomeScreen extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Container(
-                      height: context.height * 0.12,
-                      width: context.width * 0.24,
-                      decoration: BoxDecoration(
-                          color: AppColors.babyBlue,
-                          borderRadius: BorderRadius.circular(20)),
-                      child: Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            InkWell(
-                              onTap: () {
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                      builder: (context) => TestScreen(),
-                                    ));
-                              },
-                              child: Container(
+                    InkWell(
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => TestScreen(),
+                            ));
+                      },
+                      child: Container(
+                        height: context.height * 0.12,
+                        width: context.width * 0.24,
+                        decoration: BoxDecoration(
+                            color: AppColors.babyBlue,
+                            borderRadius: BorderRadius.circular(20)),
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Container(
                                 width: context.width * 0.12,
                                 height: context.height * 0.06,
                                 decoration: BoxDecoration(
@@ -97,16 +97,16 @@ class HomeScreen extends StatelessWidget {
                                   color: AppColors.black,
                                 ),
                               ),
-                            ),
-                            const SizedBox(
-                              height: 5,
-                            ),
-                            Text(
-                              " Test",
-                              style: getRegularStyle(
-                                  color: AppColors.black, fontSize: 15),
-                            )
-                          ],
+                              const SizedBox(
+                                height: 5,
+                              ),
+                              Text(
+                                " Test",
+                                style: getRegularStyle(
+                                    color: AppColors.black, fontSize: 15),
+                              )
+                            ],
+                          ),
                         ),
                       ),
                     ),

@@ -15,6 +15,7 @@ class _IsharaaTestScreenState extends State<IsharaaTestScreen> {
   PageController pageController = PageController();
   bool lastpage = false;
   String? selectedRadioTile;
+  int? selectedContainer;
 
   setSelectedRadioTile(String? tile) {
     setState(() {
@@ -58,12 +59,13 @@ class _IsharaaTestScreenState extends State<IsharaaTestScreen> {
                         children: [
                           Expanded(
                             child: RadioListTile(
-                              value: 'A',
+                              value: 'Q',
                               groupValue: selectedRadioTile,
-                              title: const Text('A'),
+                              title: const Text('Q'),
                               onChanged: (value) {
                                 setSelectedRadioTile(value!);
                               },
+                              activeColor: AppColors.black,
                             ),
                           ),
                           Expanded(
@@ -74,16 +76,18 @@ class _IsharaaTestScreenState extends State<IsharaaTestScreen> {
                               onChanged: (value) {
                                 setSelectedRadioTile(value!);
                               },
+                              activeColor: AppColors.black,
                             ),
                           ),
                           Expanded(
                             child: RadioListTile(
-                              value: 'C',
+                              value: 'R',
                               groupValue: selectedRadioTile,
-                              title: const Text('C'),
+                              title: const Text('R'),
                               onChanged: (value) {
                                 setSelectedRadioTile(value!);
                               },
+                              activeColor: AppColors.black,
                             ),
                           ),
                         ],
@@ -116,7 +120,9 @@ class _IsharaaTestScreenState extends State<IsharaaTestScreen> {
                         children: [
                           Container(
                             decoration: BoxDecoration(
-                                color: AppColors.white,
+                                color: selectedContainer == 0
+                                    ? AppColors.primary
+                                    : AppColors.white,
                                 border: Border.all(
                                     color: AppColors.lightGrey, width: 2),
                                 borderRadius: BorderRadius.circular(30)),
@@ -127,13 +133,19 @@ class _IsharaaTestScreenState extends State<IsharaaTestScreen> {
                                   style: getSemiBoldStyle(
                                       color: AppColors.black, fontSize: 20),
                                 ),
-                                onPressed: () {},
+                                onPressed: () {
+                                  setState(() {
+                                    selectedContainer = 0;
+                                  });
+                                },
                               ),
                             ),
                           ),
                           Container(
                             decoration: BoxDecoration(
-                                color: AppColors.white,
+                                color: selectedContainer == 1
+                                    ? AppColors.primary
+                                    : AppColors.white,
                                 border: Border.all(
                                     color: AppColors.lightGrey, width: 2),
                                 borderRadius: BorderRadius.circular(30)),
@@ -144,13 +156,19 @@ class _IsharaaTestScreenState extends State<IsharaaTestScreen> {
                                   style: getSemiBoldStyle(
                                       color: AppColors.black, fontSize: 20),
                                 ),
-                                onPressed: () {},
+                                onPressed: () {
+                                  setState(() {
+                                    selectedContainer = 1;
+                                  });
+                                },
                               ),
                             ),
                           ),
                           Container(
                             decoration: BoxDecoration(
-                                color: AppColors.white,
+                                color: selectedContainer == 2
+                                    ? AppColors.primary
+                                    : AppColors.white,
                                 border: Border.all(
                                     color: AppColors.lightGrey, width: 2),
                                 borderRadius: BorderRadius.circular(30)),
@@ -161,7 +179,11 @@ class _IsharaaTestScreenState extends State<IsharaaTestScreen> {
                                   style: getSemiBoldStyle(
                                       color: AppColors.black, fontSize: 20),
                                 ),
-                                onPressed: () {},
+                                onPressed: () {
+                                  setState(() {
+                                    selectedContainer = 2;
+                                  });
+                                },
                               ),
                             ),
                           ),
